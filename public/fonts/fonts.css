@@ -1,0 +1,17 @@
+/* Dubtronic Solid Font */
+@font-face {
+  font-family: 'Dubtronic-Solid';
+  src: url('/fonts/dubtronic_solid_macroman/Dubtronic-Solid-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Dubtronic Inline Font */
+@font-face {
+  font-family: 'Dubtronic-Inline';
+  src: url('/fonts/dubtronicinline_regular_macroman/Dubtronic-Inline-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
