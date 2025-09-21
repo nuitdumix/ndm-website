@@ -1,5 +1,5 @@
 import { create } from 'zustand'
-import type { NDMEvent, EventState } from '../types'
+import type { EventState } from '../types'
 import { SAMPLE_EVENTS } from '../constants'
 
 export const useEventStore = create<EventState>((set, get) => ({
