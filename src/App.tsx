@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import Hero from './components/Hero'
+import About from './components/About'
 import EventGrid from './components/EventGrid'
 import Newsletter from './components/Newsletter'
 import { useEventStore } from './store/eventStore'
@@ -16,6 +17,7 @@ function App() {
     <div className="min-h-screen bg-ndm-dark text-ndm-accent font-mono">
       <main>
         <Hero />
+        <About />
         <EventGrid />
         <Newsletter />
       </main>
