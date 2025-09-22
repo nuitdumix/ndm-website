@@ -2,7 +2,6 @@ import { useEffect } from 'react'
 import Hero from './components/Hero'
 import About from './components/About'
 import EventGrid from './components/EventGrid'
-import Newsletter from './components/Newsletter'
 import { useEventStore } from './store/eventStore'
 
 function App() {
@@ -19,7 +18,7 @@ function App() {
         <Hero />
         <About />
         <EventGrid />
-        <Newsletter />
+        {/* <Newsletter /> */}
       </main>
     </div>
   )

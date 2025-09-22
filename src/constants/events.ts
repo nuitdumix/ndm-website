@@ -55,7 +55,7 @@ export const SAMPLE_EVENTS: NDMEvent[] = [
     date: '?',
     time: '?',
     city: '?',
-    theme: "Casino",
+    theme: "CASINO",
     description: "?",
     status: 'upcoming',
     price: '0€',
