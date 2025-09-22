@@ -5,11 +5,9 @@ import { useEventStore } from '../store/eventStore'
 const EventFilters: React.FC = () => {
   const { filter, searchTerm, setFilter, setSearchTerm } = useEventStore()
 
-  const filters = [
-    { key: 'all', label: 'ALL_EVENTS' },
-    { key: 'upcoming', label: 'UPCOMING' },
-    { key: 'past', label: 'ARCHIVED' }
-  ] as const
+  const toggleUpcomingFilter = () => {
+    setFilter(filter === 'upcoming' ? 'all' : 'upcoming')
+  }
 
   return (
     <motion.div
@@ -24,7 +22,7 @@ const EventFilters: React.FC = () => {
           root@ndm:~/events$ filter_events --options
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 gap-6">
           {/* Search Input */}
           <div>
             <label className="font-mono text-ndm-secondary text-sm mb-2 block">
@@ -36,9 +34,9 @@ const EventFilters: React.FC = () => {
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 placeholder="artist, venue, style..."
-                className="w-full bg-black border-2 border-white text-white font-mono p-3 focus:border-ndm-primary focus:outline-none transition-colors"
+                className="w-full bg-black border-2 border-white text-white font-mono p-3 focus:border-ndm-primary focus:outline-none transition-colors text-sm"
               />
-              <div className="absolute right-3 top-1/2 transform -translate-y-1/2 text-ndm-secondary font-mono text-sm">
+              <div className="absolute right-3 top-1/2 transform -translate-y-1/2 text-ndm-secondary font-mono text-xs">
                 {searchTerm ? `[${searchTerm.length}]` : '[0]'}
               </div>
             </div>
@@ -49,28 +47,25 @@ const EventFilters: React.FC = () => {
             <label className="font-mono text-ndm-secondary text-sm mb-2 block">
               STATUS_FILTER:
             </label>
-            <div className="flex gap-2">
-              {filters.map(({ key, label }) => (
-                <motion.button
-                  key={key}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  onClick={() => setFilter(key)}
-                  className={`font-mono text-sm px-4 py-3 border-2 transition-all duration-200 ${
-                    filter === key
-                      ? 'bg-ndm-primary text-black border-ndm-primary'
-                      : 'bg-transparent text-white border-white hover:border-ndm-secondary hover:text-ndm-secondary'
-                  }`}
-                >
-                  {label}
-                </motion.button>
-              ))}
+            <div className="flex gap-2 flex-wrap">
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={toggleUpcomingFilter}
+                className={`font-mono text-xs sm:text-sm px-3 sm:px-4 py-2 sm:py-3 border-2 transition-all duration-200 min-w-0 flex-shrink-0 ${
+                  filter === 'upcoming'
+                    ? 'bg-ndm-primary text-black border-ndm-primary'
+                    : 'bg-transparent text-white border-white hover:border-ndm-secondary hover:text-ndm-secondary'
+                }`}
+              >
+                UPCOMING_ONLY
+              </motion.button>
             </div>
           </div>
         </div>
 
         {/* Active Filters Display */}
-        {(searchTerm || filter !== 'all') && (
+        {(searchTerm || filter === 'upcoming') && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
@@ -81,23 +76,23 @@ const EventFilters: React.FC = () => {
               ACTIVE_FILTERS:
             </div>
             <div className="flex flex-wrap gap-2">
-              {filter !== 'all' && (
-                <span className="bg-ndm-primary text-black font-mono text-xs px-3 py-1 flex items-center gap-2">
-                  STATUS: {filter.toUpperCase()}
+              {filter === 'upcoming' && (
+                <span className="bg-ndm-primary text-black font-mono text-xs px-2 sm:px-3 py-1 flex items-center gap-1 sm:gap-2 break-words max-w-full">
+                  <span className="truncate">STATUS: UPCOMING</span>
                   <button
                     onClick={() => setFilter('all')}
-                    className="hover:text-ndm-accent transition-colors"
+                    className="hover:text-ndm-accent transition-colors flex-shrink-0 ml-1"
                   >
                     ×
                   </button>
                 </span>
               )}
               {searchTerm && (
-                <span className="bg-ndm-secondary text-white font-mono text-xs px-3 py-1 flex items-center gap-2">
-                  SEARCH: {searchTerm}
+                <span className="bg-ndm-secondary text-white font-mono text-xs px-2 sm:px-3 py-1 flex items-center gap-1 sm:gap-2 break-words max-w-full">
+                  <span className="truncate">SEARCH: {searchTerm.length > 15 ? searchTerm.substring(0, 15) + '...' : searchTerm}</span>
                   <button
                     onClick={() => setSearchTerm('')}
-                    className="hover:text-ndm-accent transition-colors"
+                    className="hover:text-ndm-accent transition-colors flex-shrink-0 ml-1"
                   >
                     ×
                   </button>

@@ -52,11 +52,23 @@ export const SAMPLE_EVENTS: NDMEvent[] = [
   {
     id: '005',
     title: 'NUIT_DU_MIX',
-    date: '2025-12-08',
-    time: '22:00',
+    date: '?',
+    time: '?',
     city: '?',
-    theme: "SAISONS",
-    description: "Ur songs need to match feelings of seasons",
+    theme: "Casino",
+    description: "?",
+    status: 'upcoming',
+    price: '0€',
+    ticketUrl: '#'
+  },
+  {
+    id: '006',
+    title: 'NUIT_DU_MIX',
+    date: '?',
+    time: '?',
+    city: '?',
+    theme: "SAVEURS",
+    description: "?",
     status: 'upcoming',
     price: '0€',
     ticketUrl: '#'

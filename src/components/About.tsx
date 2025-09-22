@@ -26,7 +26,7 @@ const About: React.FC = () => {
             <p className="font-mono text-sm md:text-base text-ndm-muted leading-relaxed">
               Chaque événement impose un <span className="text-ndm-secondary">THÈME</span> aux DJ·Es. 
               Pas de sets formatés, pas de playlists recyclées. Seulement de la création pure 
-              et de l'exploration sonore sans compromis.
+              et de l'exploration sonore autour de ce thème.
             </p>
 
             <p className="font-mono text-sm md:text-base text-ndm-muted leading-relaxed">
@@ -53,7 +53,7 @@ const About: React.FC = () => {
                 <div className="flex items-start gap-3">
                   <span className="text-ndm-secondary font-mono text-sm">→</span>
                   <span className="font-mono text-xs text-ndm-accent">
-                    ZÉRO TOLÉRANCE GÉNÉRIQUE
+                    ZÉRO LINEUP
                   </span>
                 </div>
                 
@@ -67,7 +67,7 @@ const About: React.FC = () => {
                 <div className="flex items-start gap-3">
                   <span className="text-ndm-secondary font-mono text-sm">→</span>
                   <span className="font-mono text-xs text-ndm-accent">
-                    COMMUNAUTÉ UNDERGROUND
+                    MADE BY DJS FOR DJS
                   </span>
                 </div>
               </div>
@@ -83,8 +83,8 @@ const About: React.FC = () => {
               <div className="font-mono text-ndm-secondary text-xs mb-2">
                 REJOINDRE_LA_RESISTANCE
               </div>
-              <a 
-                href="#newsletter" 
+              <a target="_blank" rel="noopener noreferrer" 
+                href="https://www.instagram.com/nuitdumix" 
                 className="inline-block font-mono text-sm px-6 py-3 border-2 border-ndm-secondary text-ndm-secondary hover:bg-ndm-secondary hover:text-ndm-dark transition-colors"
               >
                 S'INSCRIRE
