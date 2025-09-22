@@ -92,8 +92,8 @@ const Hero: React.FC = () => {
             </p>
           )}
           {block.id === 'cta' && (
-            <a
-              href="#newsletter"
+            <a target="_blank" rel="noopener noreferrer"
+              href="https://www.instagram.com/nuitdumix"
               className="mt-4 font-mono text-sm md:text-base px-6 py-3 border-2 border-ndm-primary text-ndm-primary hover:bg-ndm-primary hover:text-ndm-dark transition-colors"
             >
               INSCRIPTION
