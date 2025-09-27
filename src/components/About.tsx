@@ -5,7 +5,7 @@ const About: React.FC = () => {
     <section className="py-24 px-4 bg-ndm-dark" id="about">
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="hero-line-readable text-4xl md:text-6xl text-ndm-accent mb-8">
+          <h2 className="hero-line-readable text-2xl sm:text-3xl md:text-5xl lg:text-6xl text-ndm-accent mb-8">
             QU'EST-CE QUE NDM ?
           </h2>
           <div className="w-16 h-1 bg-ndm-primary mx-auto mb-8"></div>

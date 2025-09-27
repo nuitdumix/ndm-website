@@ -57,7 +57,7 @@ body {
   text-transform: uppercase;
   letter-spacing: -0.015em;
   line-height: 0.85;
-  font-size: clamp(3.5rem, 13vw, 14rem);
+  font-size: clamp(2.5rem, 10vw, 14rem); /* Réduit la taille minimale */
   white-space: nowrap;
 }
 
@@ -68,7 +68,7 @@ body {
   text-transform: uppercase;
   letter-spacing: -0.015em;
   line-height: 0.85;
-  font-size: clamp(3.5rem, 13vw, 14rem);
+  font-size: clamp(2rem, 9vw, 12rem); /* Réduit pour mobile */
   white-space: nowrap;
 }
 
@@ -79,7 +79,7 @@ body {
   text-transform: uppercase;
   letter-spacing: -0.01em;
   line-height: 0.9;
-  font-size: clamp(2rem, 8vw, 8rem);
+  font-size: clamp(1.25rem, 6vw, 8rem); /* Encore plus petit pour mobile */
   white-space: nowrap;
 }
 
