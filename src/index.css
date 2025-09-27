@@ -19,6 +19,15 @@
   font-display: swap;
 }
 
+/* 1533 Font */
+@font-face {
+  font-family: '1533';
+  src: url('/fonts/1533/1533.ttf');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* Base Brutalist Styles */
 * {
   box-sizing: border-box;
@@ -40,7 +49,9 @@ body {
 }
 
 /* Ultra display hero lines (desktop-first) */
-.hero-line-static {
+
+/* Classe pour "NUIT DU MIX" - Dubtronic Solid (plus impact) */
+.hero-line-brand {
   font-family: 'Dubtronic-Solid', 'Courier New', monospace;
   font-weight: 400;
   text-transform: uppercase;
@@ -50,7 +61,33 @@ body {
   white-space: nowrap;
 }
 
-.hero-line-static + .hero-line-static { margin-top: 0.05em; }
+/* Classe pour les autres titres - Dubtronic Inline (plus lisible) */
+.hero-line-readable {
+  font-family: 'Dubtronic-Inline', 'Courier New', monospace;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: -0.015em;
+  line-height: 0.85;
+  font-size: clamp(3.5rem, 13vw, 14rem);
+  white-space: nowrap;
+}
+
+/* Classe pour les thèmes - plus petite et plus lisible */
+.hero-line-themes {
+  font-family: 'Dubtronic-Inline', 'Courier New', monospace;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  line-height: 0.9;
+  font-size: clamp(2rem, 8vw, 8rem);
+  white-space: nowrap;
+}
+
+.hero-line-brand + .hero-line-brand,
+.hero-line-readable + .hero-line-readable,
+.hero-line-themes + .hero-line-themes { 
+  margin-top: 0.05em; 
+}
 
 /* Brutalist Components */
 @layer components {

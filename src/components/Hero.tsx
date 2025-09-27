@@ -76,10 +76,18 @@ const Hero: React.FC = () => {
           <div className="leading-none">
             {block.lines.map((line, i) => {
               const accent = block.accentIndex === i
+              // Déterminer la classe CSS selon le bloc
+              let fontClass = 'hero-line-readable'
+              if (block.id === 'intro' || block.id == 'themes') {
+                fontClass = 'hero-line-brand' // Dubtronic-Solid pour "NUIT DU MIX"
+              } else if (block.id === 'themes') {
+                fontClass = 'hero-line-themes' // Plus petite pour les thèmes
+              }
+              
               return (
                 <h2
                   key={i}
-                  className={`hero-line-static ${accent ? 'text-ndm-primary' : 'text-ndm-accent'} ${block.muted ? 'opacity-50' : ''}`}
+                  className={`${fontClass} ${accent ? 'text-ndm-primary' : 'text-ndm-accent'} ${block.muted ? 'opacity-50' : ''}`}
                 >
                   {line}
                 </h2>

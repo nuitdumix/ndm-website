@@ -17,6 +17,7 @@ module.exports = {
       fontFamily: {
         'dubtronic': ['Dubtronic-Solid', 'Courier New', 'monospace'],
         'dubtronic-inline': ['Dubtronic-Inline', 'Courier New', 'monospace'],
+        '1533': ['1533', 'Courier New', 'monospace'],
         'mono': ['Courier New', 'monospace'],
       },
       animation: {

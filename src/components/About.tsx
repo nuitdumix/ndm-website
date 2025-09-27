@@ -5,7 +5,7 @@ const About: React.FC = () => {
     <section className="py-24 px-4 bg-ndm-dark" id="about">
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="font-dubtronic text-4xl md:text-6xl text-ndm-accent mb-8">
+          <h2 className="hero-line-readable text-4xl md:text-6xl text-ndm-accent mb-8">
             QU'EST-CE QUE NDM ?
           </h2>
           <div className="w-16 h-1 bg-ndm-primary mx-auto mb-8"></div>
@@ -25,13 +25,14 @@ const About: React.FC = () => {
 
             <p className="font-mono text-sm md:text-base text-ndm-muted leading-relaxed">
               Chaque événement impose un <span className="text-ndm-secondary">THÈME</span> aux DJ·Es. 
-              Pas de sets formatés, pas de playlists recyclées. Seulement de la création pure 
-              et de l'exploration sonore autour de ce thème.
+              Pas de sets formatés, uniquement de la création pure 
+              et de l'exploration sonore. Direction l'expérimentation brute guidée par le thème imposé
             </p>
 
             <p className="font-mono text-sm md:text-base text-ndm-muted leading-relaxed">
-              Des contraintes créatives aux défis impossibles, NDM pousse les artistes 
-              à sortir de leur zone de confort pour créer des expériences uniques et mémorables.
+              NDM pousse les artistes 
+              à sortir de leur zone de confort, en obligeant le dig avant chaque soirées
+              elle permet d'entretenir une culture du partage et de découverte musicale.
             </p>
           </div>
 
@@ -60,7 +61,7 @@ const About: React.FC = () => {
                 <div className="flex items-start gap-3">
                   <span className="text-ndm-secondary font-mono text-sm">→</span>
                   <span className="font-mono text-xs text-ndm-accent">
-                    EXPLORATION SONORE RADICALE
+                    EXPLORATION SONORE
                   </span>
                 </div>
                 
@@ -97,15 +98,15 @@ const About: React.FC = () => {
         <div className="mt-16 pt-8 border-t border-ndm-primary/30">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
             <div>
-              <div className="font-dubtronic text-2xl md:text-3xl text-ndm-primary">
-                5+
+              <div className="font-1533 text-2xl md:text-3xl text-ndm-primary">
+                7+
               </div>
               <div className="font-mono text-xs text-ndm-muted">
                 ÉVÉNEMENTS
               </div>
             </div>
             <div>
-              <div className="font-dubtronic text-2xl md:text-3xl text-ndm-primary">
+              <div className="font-1533 text-2xl md:text-3xl text-ndm-primary">
                 0€
               </div>
               <div className="font-mono text-xs text-ndm-muted">
@@ -113,7 +114,7 @@ const About: React.FC = () => {
               </div>
             </div>
             <div>
-              <div className="font-dubtronic text-2xl md:text-3xl text-ndm-primary">
+              <div className="font-1533 text-2xl md:text-3xl text-ndm-primary">
                 100%
               </div>
               <div className="font-mono text-xs text-ndm-muted">
@@ -121,7 +122,7 @@ const About: React.FC = () => {
               </div>
             </div>
             <div>
-              <div className="font-dubtronic text-2xl md:text-3xl text-ndm-primary">
+              <div className="font-1533 text-2xl md:text-3xl text-ndm-primary">
                 ∞
               </div>
               <div className="font-mono text-xs text-ndm-muted">
