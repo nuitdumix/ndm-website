@@ -78,7 +78,7 @@ const Hero: React.FC = () => {
               const accent = block.accentIndex === i
               // Déterminer la classe CSS selon le bloc
               let fontClass = 'hero-line-readable'
-              if (block.id === 'intro' || block.id == 'themes') {
+              if (block.id === 'intro' || block.id == 'principle') {
                 fontClass = 'hero-line-brand' // Dubtronic-Solid pour "NUIT DU MIX"
               } else if (block.id === 'themes') {
                 fontClass = 'hero-line-themes' // Plus petite pour les thèmes

@@ -26,7 +26,7 @@ const About: React.FC = () => {
             <p className="font-mono text-sm md:text-base text-ndm-muted leading-relaxed">
               Chaque événement impose un <span className="text-ndm-secondary">THÈME</span> aux DJ·Es. 
               Pas de sets formatés, uniquement de la création pure 
-              et de l'exploration sonore. Direction l'expérimentation brute guidée par le thème imposé
+              et de l'exploration sonore. On s'embarque dans une experimentation guidée par le thème imposé
             </p>
 
             <p className="font-mono text-sm md:text-base text-ndm-muted leading-relaxed">

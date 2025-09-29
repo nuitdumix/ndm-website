@@ -32,7 +32,7 @@ export const SAMPLE_EVENTS: NDMEvent[] = [
     time: '20:00',
     city: 'DIJON',
     theme: "NO SHAZAM",
-    description: "You set need to be fill with song that aren't recognize by Mr.Shazam",
+    description: "Your set needs to be filled with songs that aren't recognised by Mr Shazam.",
     status: 'upcoming',
     price: '0€',
     ticketUrl: '#'
@@ -79,7 +79,7 @@ export const SAMPLE_EVENTS: NDMEvent[] = [
     date: '?',
     time: '?',
     city: '?',
-    theme: "DROID",
+    theme: "STORMTROOPER",
     description: "?",
     status: 'upcoming',
     price: '0€',
