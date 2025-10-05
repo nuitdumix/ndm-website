@@ -35,7 +35,7 @@ export const SAMPLE_EVENTS: NDMEvent[] = [
     description: "Your set needs to be filled with songs that aren't recognised by Mr Shazam.",
     status: 'upcoming',
     price: '0€',
-    ticketUrl: '#'
+    ticketUrl: 'https://forms.gle/Uige77TPPPn5jt3A6'
   },
   {
     id: '004',
