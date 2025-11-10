@@ -1,8 +1,7 @@
 import type { NDMEvent } from '../types'
 
-export const SAMPLE_EVENTS: NDMEvent[] = [
+const EVENTS_DATA: Omit<NDMEvent, 'id'>[] = [
   {
-    id: '001',
     title: 'NUIT_DU_MIX_001',
     date: '2024-10-17',
     time: '22:00',
@@ -14,7 +13,6 @@ export const SAMPLE_EVENTS: NDMEvent[] = [
     ticketUrl: '#'
   },
   {
-    id: '002',
     title: 'ANNIV_DU_MIX',
     date: '2025-02-17',
     time: '21:00',
@@ -26,19 +24,28 @@ export const SAMPLE_EVENTS: NDMEvent[] = [
     ticketUrl: '#'
   },
   {
-    id: '003',
     title: 'NUIT_DU_MIX',
     date: '2025-10-25',
     time: '20:00',
     city: 'DIJON',
     theme: "NO SHAZAM",
     description: "Your set needs to be filled with songs that aren't recognised by Mr Shazam.",
-    status: 'upcoming',
+    status: 'past',
     price: '0€',
-    ticketUrl: 'https://forms.gle/Uige77TPPPn5jt3A6'
+    ticketUrl: '#'
   },
   {
-    id: '004',
+    title: 'NUIT_DU_MIX',
+    date: '05/12/2025',
+    time: '20:00',
+    city: 'DIJON',
+    theme: "JEUX VIDEOS",
+    description: "?",
+    status: 'upcoming',
+    price: '2€ - 5€',
+    ticketUrl: '#'
+  },
+  {
     title: 'NUIT_DU_MIX',
     date: '?',
     time: '?',
@@ -50,7 +57,6 @@ export const SAMPLE_EVENTS: NDMEvent[] = [
     ticketUrl: '#'
   },
   {
-    id: '005',
     title: 'NUIT_DU_MIX',
     date: '?',
     time: '?',
@@ -62,7 +68,6 @@ export const SAMPLE_EVENTS: NDMEvent[] = [
     ticketUrl: '#'
   },
   {
-    id: '006',
     title: 'NUIT_DU_MIX',
     date: '?',
     time: '?',
@@ -74,7 +79,6 @@ export const SAMPLE_EVENTS: NDMEvent[] = [
     ticketUrl: '#'
   },
   {
-    id: '007',
     title: 'NUIT_DU_MIX',
     date: '?',
     time: '?',
@@ -86,7 +90,6 @@ export const SAMPLE_EVENTS: NDMEvent[] = [
     ticketUrl: '#'
   },
   {
-    id: '008',
     title: 'NUIT_DU_MIX',
     date: '?',
     time: '?',
@@ -98,3 +101,8 @@ export const SAMPLE_EVENTS: NDMEvent[] = [
     ticketUrl: '#'
   }
 ]
+
+export const SAMPLE_EVENTS: NDMEvent[] = EVENTS_DATA.map((event, index) => ({
+  ...event,
+  id: (index + 1).toString().padStart(3, '0')
+}))
