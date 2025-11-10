@@ -3,7 +3,7 @@ import type { NDMEvent } from '../types'
 const EVENTS_DATA: Omit<NDMEvent, 'id'>[] = [
   {
     title: 'NUIT_DU_MIX_001',
-    date: '2024-10-17',
+    date: '17/10/2024',
     time: '22:00',
     city: 'DIJON',
     theme: "VILLES",
@@ -14,7 +14,7 @@ const EVENTS_DATA: Omit<NDMEvent, 'id'>[] = [
   },
   {
     title: 'ANNIV_DU_MIX',
-    date: '2025-02-17',
+    date: '17/02/2025',
     time: '21:00',
     city: 'DIJON',
     theme: "BIRTHDAY",
@@ -25,7 +25,7 @@ const EVENTS_DATA: Omit<NDMEvent, 'id'>[] = [
   },
   {
     title: 'NUIT_DU_MIX',
-    date: '2025-10-25',
+    date: '25/10/2025',
     time: '20:00',
     city: 'DIJON',
     theme: "NO SHAZAM",
@@ -102,7 +102,23 @@ const EVENTS_DATA: Omit<NDMEvent, 'id'>[] = [
   }
 ]
 
-export const SAMPLE_EVENTS: NDMEvent[] = EVENTS_DATA.map((event, index) => ({
+// Helper function to convert DD/MM/YYYY to Date object for sorting
+const parseDate = (dateStr: string): Date => {
+  if (dateStr === '?') {
+    return new Date('9999-12-31') // Put unknown dates at the end
+  }
+  const [day, month, year] = dateStr.split('/')
+  return new Date(parseInt(year), parseInt(month) - 1, parseInt(day))
+}
+
+// Sort events chronologically
+const sortedEvents = EVENTS_DATA.sort((a, b) => {
+  const dateA = parseDate(a.date)
+  const dateB = parseDate(b.date)
+  return dateA.getTime() - dateB.getTime()
+})
+
+export const SAMPLE_EVENTS: NDMEvent[] = sortedEvents.map((event, index) => ({
   ...event,
   id: (index + 1).toString().padStart(3, '0')
 }))
