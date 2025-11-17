@@ -49,20 +49,30 @@ const EventGrid: React.FC = () => {
                     const date = new Date(dateString)
                     return date.toLocaleDateString('fr-FR', { day: '2-digit', month: '2-digit', year: '2-digit' })
                   }
+                  const eventDate = new Date(event.date)
+                  const isValidDate = !isNaN(eventDate.getTime())
+                  const isUpcoming = isValidDate && eventDate > new Date() && event.status === 'upcoming'
                   return (
                     <button
                       key={event.id}
                       onClick={() => openModal(event)}
-                      className="grid grid-cols-12 gap-4 py-3 hover:bg-ndm-primary/10 hover:border-l-4 hover:border-ndm-primary hover:pl-2 hover:shadow-[2px_2px_0px_#FFA400] hover:transform hover:translate-x-1 transition-all duration-200 cursor-pointer w-full text-left group relative overflow-hidden"
+                      className={`grid grid-cols-12 gap-4 py-3 hover:bg-ndm-primary/10 hover:border-l-4 hover:border-ndm-primary hover:pl-2 hover:shadow-[2px_2px_0px_#FFA400] hover:transform hover:translate-x-1 transition-all duration-200 cursor-pointer w-full text-left group relative overflow-hidden ${isUpcoming ? 'bg-ndm-accent/10 border-l-2 border-ndm-accent' : ''}`}
                     >
                       {/* Effet de brillance subtil au survol */}
                       <div className="absolute inset-0 bg-gradient-to-r from-transparent via-ndm-primary/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"></div>
                       
-                      <div className="col-span-1 text-ndm-primary group-hover:text-ndm-accent group-hover:font-bold transition-all duration-200 relative z-10">{String(index + 1).padStart(2, '0')}</div>
-                      <div className="col-span-3 text-ndm-accent truncate group-hover:text-ndm-primary group-hover:font-semibold transition-all duration-200 relative z-10">{event.theme}</div>
-                      <div className="col-span-2 text-ndm-secondary group-hover:text-ndm-accent transition-all duration-200 relative z-10">{formatDate(event.date)}</div>
-                      <div className="col-span-2 text-ndm-primary group-hover:text-ndm-secondary transition-all duration-200 relative z-10">{event.city}</div>
-                      <div className="col-span-2 text-ndm-primary text-right group-hover:text-ndm-accent group-hover:font-semibold transition-all duration-200 relative z-10">{event.price}</div>
+                      <div className={`col-span-1 ${isUpcoming ? 'text-ndm-accent font-bold' : 'text-ndm-primary'} group-hover:text-ndm-accent group-hover:font-bold transition-all duration-200 relative z-10`}>{String(index + 1).padStart(2, '0')}</div>
+                      <div className={`col-span-3 truncate group-hover:text-ndm-primary group-hover:font-semibold transition-all duration-200 relative z-10 ${isUpcoming ? 'text-ndm-accent font-bold' : 'text-ndm-accent'}`}>{event.theme}</div>
+                      <div className={`col-span-2 group-hover:text-ndm-accent transition-all duration-200 relative z-10 ${isUpcoming ? 'text-ndm-accent' : 'text-ndm-secondary'}`}>{formatDate(event.date)}</div>
+                      <div className={`col-span-2 group-hover:text-ndm-secondary transition-all duration-200 relative z-10 ${isUpcoming ? 'text-ndm-accent' : 'text-ndm-primary'}`}>{event.city}</div>
+                      <div className={`col-span-2 text-right group-hover:text-ndm-accent group-hover:font-semibold transition-all duration-200 relative z-10 ${isUpcoming ? 'text-ndm-accent font-bold' : 'text-ndm-primary'}`}>{event.price}</div>
+                      
+                      {/* Badge UPCOMING pour événements à venir */}
+                      {isUpcoming && (
+                        <div className="absolute left-0 top-0 bg-ndm-accent text-ndm-dark text-[10px] font-mono font-bold px-2 py-1">
+                          À VENIR
+                        </div>
+                      )}
                       
                       {/* Indicateur de clic subtil */}
                       <div className="absolute right-4 top-1/2 -translate-y-1/2 text-ndm-primary/30 group-hover:text-ndm-primary group-hover:translate-x-1 transition-all duration-200 font-mono text-xs opacity-0 group-hover:opacity-100">
@@ -85,36 +95,46 @@ const EventGrid: React.FC = () => {
                     year: '2-digit' 
                   })
                 }
+                const eventDate = new Date(event.date)
+                const isValidDate = !isNaN(eventDate.getTime())
+                const isUpcoming = isValidDate && eventDate > new Date() && event.status === 'upcoming'
                 return (
                   <button
                     key={event.id}
                     onClick={() => openModal(event)}
-                    className="border border-ndm-primary/30 bg-ndm-dark hover:bg-ndm-primary/5 hover:border-ndm-primary hover:shadow-[2px_2px_0px_#FFA400] p-4 transition-all duration-200 cursor-pointer w-full text-left group relative overflow-hidden"
+                    className={`border ${isUpcoming ? 'border-ndm-accent bg-ndm-accent/10' : 'border-ndm-primary/30 bg-ndm-dark'} hover:bg-ndm-primary/5 hover:border-ndm-primary hover:shadow-[2px_2px_0px_#FFA400] p-4 transition-all duration-200 cursor-pointer w-full text-left group relative overflow-hidden`}
                   >
                     {/* Effet de brillance */}
                     <div className="absolute inset-0 bg-gradient-to-r from-transparent via-ndm-primary/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"></div>
                     
+                    {/* Badge UPCOMING pour événements à venir */}
+                    {isUpcoming && (
+                      <div className="absolute top-0 right-0 bg-ndm-accent text-ndm-dark text-[10px] font-mono font-bold px-2 py-1">
+                        À VENIR
+                      </div>
+                    )}
+                    
                     {/* Header de la carte */}
                     <div className="flex justify-between items-start mb-3 relative z-10">
-                      <div className="text-ndm-primary font-mono text-xs group-hover:text-ndm-accent transition-colors">
+                      <div className={`font-mono text-xs group-hover:text-ndm-accent transition-colors ${isUpcoming ? 'text-ndm-accent font-bold' : 'text-ndm-primary'}`}>
                         #{String(index + 1).padStart(2, '0')}
                       </div>
-                      <div className="text-ndm-primary text-right font-mono text-sm group-hover:text-ndm-accent transition-colors">
+                      <div className={`text-right font-mono text-sm group-hover:text-ndm-accent transition-colors ${isUpcoming ? 'text-ndm-accent font-bold' : 'text-ndm-primary'}`}>
                         {event.price}
                       </div>
                     </div>
                     
                     {/* Titre principal */}
-                    <h3 className="text-ndm-accent text-lg font-semibold mb-3 group-hover:text-ndm-primary transition-colors relative z-10">
+                    <h3 className={`text-lg font-semibold mb-3 group-hover:text-ndm-primary transition-colors relative z-10 ${isUpcoming ? 'text-ndm-accent font-bold' : 'text-ndm-accent'}`}>
                       {event.theme}
                     </h3>
                     
                     {/* Informations */}
                     <div className="flex justify-between items-center font-mono text-sm relative z-10">
-                      <span className="text-ndm-secondary group-hover:text-ndm-accent transition-colors">
+                      <span className={`group-hover:text-ndm-accent transition-colors ${isUpcoming ? 'text-ndm-accent' : 'text-ndm-secondary'}`}>
                         {formatDate(event.date)}
                       </span>
-                      <span className="text-ndm-primary group-hover:text-ndm-secondary transition-colors">
+                      <span className={`group-hover:text-ndm-secondary transition-colors ${isUpcoming ? 'text-ndm-accent' : 'text-ndm-primary'}`}>
                         {event.city}
                       </span>
                     </div>
