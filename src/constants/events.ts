@@ -39,7 +39,7 @@ const EVENTS_DATA: Omit<NDMEvent, 'id'>[] = [
     date: '2025-12-05',
     time: '19:00',
     city: 'DIJON',
-    theme: "JEUX VIDEOS",
+    theme: "PRESS START",
     description: " Le thème imposé de cette édition est PRESS START. Ici, les platines deviennent des manettes ! Pour cette nouvelle édition, on plonge dans l'univers pixelisé des consoles rétro",
     status: 'upcoming',
     price: 'Prix libre',
