@@ -37,13 +37,13 @@ const EVENTS_DATA: Omit<NDMEvent, 'id'>[] = [
   {
     title: 'NUIT_DU_MIX',
     date: '2025-12-05',
-    time: '20:00',
+    time: '19:00',
     city: 'DIJON',
     theme: "JEUX VIDEOS",
-    description: "?",
+    description: " Le thème imposé de cette édition est PRESS START. Ici, les platines deviennent des manettes ! Pour cette nouvelle édition, on plonge dans l'univers pixelisé des consoles rétro",
     status: 'upcoming',
-    price: '2€ - 5€',
-    ticketUrl: '#'
+    price: 'Prix libre',
+    ticketUrl: 'https://forms.gle/LQGZnFqedujBkNSE7'
   },
   {
     title: 'NUIT_DU_MIX',

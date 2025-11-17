@@ -99,6 +99,14 @@ const Hero: React.FC = () => {
               {block.body}
             </p>
           )}
+          {block.id === 'intro' && (
+            <a 
+              href="#events"
+              className="mt-4 font-mono text-sm md:text-base px-8 py-4 border-2 border-ndm-accent bg-ndm-accent text-ndm-dark hover:bg-transparent hover:text-ndm-accent transition-all duration-300 font-bold shadow-[4px_4px_0px_#FFA400] hover:shadow-[2px_2px_0px_#FFA400] hover:translate-x-[2px] hover:translate-y-[2px]"
+            >
+              VOIR LES ÉVÉNEMENTS
+            </a>
+          )}
           {block.id === 'cta' && (
             <a target="_blank" rel="noopener noreferrer"
               href="https://www.instagram.com/nuitdumix"
