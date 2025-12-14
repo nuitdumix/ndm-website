@@ -41,9 +41,9 @@ const EVENTS_DATA: Omit<NDMEvent, 'id'>[] = [
     city: 'DIJON',
     theme: "PRESS START",
     description: " Le thème imposé de cette édition est PRESS START. Ici, les platines deviennent des manettes ! Pour cette nouvelle édition, on plonge dans l'univers pixelisé des consoles rétro",
-    status: 'upcoming',
+    status: 'past',
     price: 'Prix libre',
-    ticketUrl: 'https://forms.gle/LQGZnFqedujBkNSE7'
+    ticketUrl: '#'
   },
   {
     title: 'NUIT_DU_MIX',

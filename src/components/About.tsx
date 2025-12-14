@@ -107,7 +107,7 @@ const About: React.FC = () => {
             </div>
             <div>
               <div className="font-1533 text-2xl md:text-3xl text-ndm-primary">
-                2€ - 5€
+                Prix libre
               </div>
               <div className="font-mono text-xs text-ndm-muted">
                 PRIX D'ENTRÉE
