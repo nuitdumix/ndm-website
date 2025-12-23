@@ -21,6 +21,15 @@ function Home() {
 function App() {
   const { loadEvents } = useEventStore()
 
+  // Normalize GitHub Pages SPA redirect BEFORE Router mounts (replaceState doesn't trigger popstate)
+  if (typeof window !== 'undefined') {
+    const search = window.location.search
+    if (search.startsWith('?/')) {
+      const target = search.slice(1).replace(/~and~/g, '&') + window.location.hash
+      window.history.replaceState(null, '', target)
+    }
+  }
+
   useEffect(() => {
     // Load events data only once
     loadEvents()
