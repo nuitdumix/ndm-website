@@ -1,0 +1,43 @@
+name: Security scan
+on: pull_request
+
+jobs:
+  sca:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+      - name: Cache npm
+        uses: actions/cache@v4
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+      - name: Install dependencies
+        run: |
+          if [ -f package-lock.json ]; then npm ci; else npm install; fi
+      - name: Run npm audit fix (auto remediation)
+        run: |
+          npm audit fix || true
+          # --force may introduce breaking changes; keep it optional and non-blocking
+          npm audit fix --force || true
+          npm update || true
+      - name: Save npm audit report
+        run: |
+          npm audit --json > npm-audit.json || true
+      - name: Upload npm audit report
+        uses: actions/upload-artifact@v4
+        with:
+          name: npm-audit-report
+          path: npm-audit.json
+      - name: Run Trivy
+        uses: aquasecurity/trivy-action@0.33.1
+        with:
+          scan-type: 'fs'
+          scanners: 'vuln'
+          severity: 'CRITICAL,HIGH'
+          exit-code: '1'

@@ -116,6 +116,36 @@ body {
   background: #F84B76;
 }
 
+/* Minimal scrollbar for themes wall */
+.themes-scroll-container {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 164, 0, 0.3) transparent;
+}
+
+.themes-scroll-container::-webkit-scrollbar {
+  width: 6px;
+}
+
+.themes-scroll-container::-webkit-scrollbar-track {
+  background: transparent;
+  border: none;
+}
+
+.themes-scroll-container::-webkit-scrollbar-thumb {
+  background: rgba(255, 164, 0, 0.3);
+  border-radius: 3px;
+  border: none;
+}
+
+.themes-scroll-container::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 164, 0, 0.5);
+}
+
+/* Smooth scroll behavior */
+.themes-scroll-container {
+  scroll-behavior: smooth;
+}
+
 /* Selection Styling */
 ::selection {
   background: #FFA400;

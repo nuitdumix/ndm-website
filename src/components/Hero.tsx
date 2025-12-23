@@ -46,7 +46,7 @@ const Hero: React.FC = () => {
     },
     {
       id: 'themes',
-      lines: themeWords.length ? themeWords : ['NO SHAZAM', 'USINE', 'COULEUR', 'SAISONS', 'DAFT', 'ELEMENTS'],
+      lines: ['CASINO', 'NO SHAZAM', 'USINE', 'COULEUR', 'SAISONS', 'DAFT', 'ELEMENTS', 'SAVEURS', 'SLAY', 'STORMTROOPER'],
       accentIndex: undefined,
       kicker: 'THEMES_PROCHAINS',
       body: 'MUR DE STYLES',
@@ -73,27 +73,63 @@ const Hero: React.FC = () => {
               {block.kicker}
             </div>
           )}
-          <div className="leading-none">
-            {block.lines.map((line, i) => {
-              const accent = block.accentIndex === i
-              // Déterminer la classe CSS selon le bloc
-              let fontClass = 'hero-line-readable'
-              if (block.id === 'intro' || block.id == 'principle') {
-                fontClass = 'hero-line-brand' // Dubtronic-Solid pour "NUIT DU MIX"
-              } else if (block.id === 'themes') {
-                fontClass = 'hero-line-themes' // Plus petite pour les thèmes
-              }
+          
+          {/* Scrollable themes wall */}
+          {block.id === 'themes' ? (
+            <div className="relative w-full max-w-5xl">
+              {/* Scroll indicator arrow - top */}
+              <div className="absolute -top-8 left-1/2 -translate-x-1/2 text-ndm-muted/30 animate-bounce">
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </div>
               
-              return (
-                <h2
-                  key={i}
-                  className={`${fontClass} ${accent ? 'text-ndm-primary' : 'text-ndm-accent'} ${block.muted ? 'opacity-50' : ''}`}
-                >
-                  {line}
-                </h2>
-              )
-            })}
-          </div>
+              {/* Scrollable container */}
+              <div className="themes-scroll-container max-h-[60vh] overflow-y-auto px-4 py-2">
+                <div className="leading-none flex flex-col gap-2">
+                  {block.lines.map((line, i) => {
+                    const accent = block.accentIndex === i
+                    return (
+                      <h2
+                        key={i}
+                        className={`hero-line-themes ${accent ? 'text-ndm-primary' : 'text-ndm-accent'} ${block.muted ? 'opacity-50' : ''}`}
+                      >
+                        {line}
+                      </h2>
+                    )
+                  })}
+                </div>
+              </div>
+              
+              {/* Scroll indicator arrow - bottom */}
+              <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 text-ndm-muted/30 animate-bounce">
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </div>
+            </div>
+          ) : (
+            <div className="leading-none">
+              {block.lines.map((line, i) => {
+                const accent = block.accentIndex === i
+                // Déterminer la classe CSS selon le bloc
+                let fontClass = 'hero-line-readable'
+                if (block.id === 'intro' || block.id == 'principle') {
+                  fontClass = 'hero-line-brand' // Dubtronic-Solid pour "NUIT DU MIX"
+                }
+                
+                return (
+                  <h2
+                    key={i}
+                    className={`${fontClass} ${accent ? 'text-ndm-primary' : 'text-ndm-accent'} ${block.muted ? 'opacity-50' : ''}`}
+                  >
+                    {line}
+                  </h2>
+                )
+              })}
+            </div>
+          )}
+          
           {block.body && (
             <p className="max-w-3xl font-mono text-xs md:text-sm text-ndm-muted">
               {block.body}

@@ -1,8 +1,20 @@
 import { useEffect } from 'react'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Hero from './components/Hero'
 import About from './components/About'
 import EventGrid from './components/EventGrid'
+import Links from './components/Links'
 import { useEventStore } from './store/eventStore'
+
+function Home() {
+  return (
+    <>
+      <Hero />
+      <About />
+      <EventGrid />
+    </>
+  )
+}
 
 function App() {
   const { loadEvents } = useEventStore()
@@ -13,14 +25,16 @@ function App() {
   }, []) // Remove loadEvents from dependency array to prevent infinite loop
 
   return (
-    <div className="min-h-screen bg-ndm-dark text-ndm-accent font-mono">
-      <main>
-        <Hero />
-        <About />
-        <EventGrid />
-        {/* <Newsletter /> */}
-      </main>
-    </div>
+    <Router>
+      <div className="min-h-screen bg-ndm-dark text-ndm-accent font-mono">
+        <main>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/links" element={<Links />} />
+          </Routes>
+        </main>
+      </div>
+    </Router>
   )
 }
 
