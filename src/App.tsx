@@ -29,11 +29,39 @@ function App() {
   // Handle GitHub Pages SPA redirect
   useEffect(() => {
     const handleRedirect = () => {
-      const path = window.location.search.slice(1) // Get everything after '?'
-      if (path.startsWith('/')) {
-        // Replace the current history entry with the parsed path
-        window.history.replaceState(null, '', path)
+      const search = window.location.search
+      if (!search || search === '?') return
+
+      // Remove the leading '?'
+      const redirectData = search.slice(1)
+
+      // The 404.html script encodes the path and query string as:
+      //   encodedPath & encodedQuery
+      // and replaces '&' within each part with '~and~'.
+      const [encodedPath, encodedQuery] = redirectData.split('&')
+
+      if (!encodedPath) return
+
+      const decodePart = (part?: string) => {
+        if (!part) return ''
+        const restored = part.replace(/~and~/g, '&')
+        try {
+          return decodeURIComponent(restored)
+        } catch {
+          // If decoding fails, fall back to the restored string
+          return restored
+        }
       }
+
+      const path = decodePart(encodedPath)
+      const query = decodePart(encodedQuery)
+
+      if (!path.startsWith('/')) return
+
+      const newUrl = path + (query ? `?${query}` : '') + window.location.hash
+
+      // Replace the current history entry with the parsed path and query
+      window.history.replaceState(null, '', newUrl)
     }
     handleRedirect()
   }, [])
