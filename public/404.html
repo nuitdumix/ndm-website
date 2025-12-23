@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <title>NUIT_DU_MIX // 404 - ACCÈS REFUSÉ</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/fonts/fonts.css" />
+    <style>
+      :root {
+        --ndm-bg: #050505;
+        --ndm-accent: #ffa400;
+        --ndm-muted: #8b8b8b;
+      }
+
+      * { box-sizing: border-box; }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        background:
+          linear-gradient(90deg, rgba(255, 164, 0, 0.05) 1px, transparent 1px),
+          linear-gradient(0deg, rgba(255, 164, 0, 0.05) 1px, transparent 1px),
+          radial-gradient(circle at 20% 20%, rgba(255, 164, 0, 0.12), transparent 35%),
+          radial-gradient(circle at 80% 10%, rgba(255, 75, 118, 0.08), transparent 30%),
+          var(--ndm-bg);
+        background-size: 24px 24px, 24px 24px, 100% 100%, 100% 100%, auto;
+        color: var(--ndm-accent);
+        font-family: 'Courier New', monospace;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 2.5rem 1.5rem;
+      }
+
+      .frame {
+        width: min(960px, 100%);
+        border: 4px solid var(--ndm-accent);
+        box-shadow: 14px 14px 0 rgba(255, 164, 0, 0.5);
+        background: rgba(5, 5, 5, 0.9);
+        padding: 2.5rem;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .frame::after {
+        content: '';
+        position: absolute;
+        inset: 12px;
+        border: 1px dashed rgba(255, 164, 0, 0.35);
+        pointer-events: none;
+      }
+
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 0.16rem;
+        padding: 0.35rem 0.9rem;
+        border: 2px solid var(--ndm-accent);
+        background: rgba(255, 164, 0, 0.08);
+        box-shadow: 6px 6px 0 rgba(255, 164, 0, 0.35);
+      }
+
+      .header {
+        margin: 1.2rem 0 1.6rem;
+      }
+
+      .title {
+        font-family: 'Dubtronic-Solid', 'Courier New', monospace;
+        font-size: clamp(2.2rem, 8vw, 4.6rem);
+        letter-spacing: -0.02em;
+        line-height: 0.9;
+        margin: 0;
+      }
+
+      .subtitle {
+        margin-top: 0.4rem;
+        font-size: 0.95rem;
+        letter-spacing: 0.22rem;
+        color: var(--ndm-muted);
+        text-transform: uppercase;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 1.5rem;
+        margin: 1.2rem 0 1.6rem;
+      }
+
+      .panel {
+        border: 2px solid var(--ndm-accent);
+        padding: 1.4rem;
+        background: rgba(0, 0, 0, 0.65);
+        position: relative;
+      }
+
+      .panel h2 {
+        margin: 0 0 0.5rem;
+        font-size: 1rem;
+        letter-spacing: 0.18rem;
+      }
+
+      .panel p {
+        margin: 0;
+        line-height: 1.6;
+        color: rgba(255, 255, 255, 0.82);
+      }
+
+      .ascii {
+        font-family: 'Courier New', monospace;
+        white-space: pre;
+        color: rgba(255, 164, 0, 0.85);
+        font-size: 0.9rem;
+        margin-top: 0.5rem;
+      }
+
+      .marquee {
+        margin: 0.5rem 0 1rem;
+        padding: 0.65rem 0.9rem;
+        border: 2px dashed var(--ndm-accent);
+        text-transform: uppercase;
+        letter-spacing: 0.18rem;
+        font-size: 0.85rem;
+        color: var(--ndm-accent);
+      }
+
+      .actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        text-decoration: none;
+        text-transform: uppercase;
+        letter-spacing: 0.16rem;
+        padding: 0.65rem 1.1rem;
+        border: 2px solid var(--ndm-accent);
+        color: var(--ndm-accent);
+        background: transparent;
+        box-shadow: 6px 6px 0 rgba(255, 164, 0, 0.35);
+        transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease, color 0.15s ease;
+      }
+
+      .btn:hover {
+        transform: translate(2px, 2px);
+        box-shadow: 4px 4px 0 rgba(255, 164, 0, 0.25);
+        background: var(--ndm-accent);
+        color: #050505;
+      }
+
+      .footnote {
+        margin-top: 0.6rem;
+        font-size: 0.8rem;
+        color: var(--ndm-muted);
+        letter-spacing: 0.08rem;
+      }
+
+      @media (max-width: 640px) {
+        .frame { padding: 1.5rem; box-shadow: 10px 10px 0 rgba(255, 164, 0, 0.5); }
+        .actions { flex-direction: column; }
+        .btn { width: 100%; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="frame">
+      <div class="badge">SYSTEM // ACCESS_DENIED // 404</div>
+
+      <div class="header">
+        <h2 class="title">NUIT_DU_MIX</h1>
+        <div class="subtitle"> · ROUTE INCONNUE · </div>
+      </div>
+
+      <div class="grid">
+        <div class="panel">
+          <h2>REDIRECTION</h2>
+          <div class="marquee">>>> RETURN TO FLOOR_00 // MAIN EVENT <<<</div>
+          <div class="actions">
+            <a class="btn" href="/">HOME // FLOOR_00</a>
+            <a class="btn" href="/links">LINKS // TRANSMISSION</a>
+          </div>
+          <div class="footnote">Si rien ne se passe, utilise les boutons ci-dessus.</div>
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      // Single Page Apps for GitHub Pages
+      // MIT License
+      // https://github.com/rafgraph/spa-github-pages
+      // This script takes the current url and converts the path and query
+      // string into just a query string, and then redirects the browser
+      // to the new url with only a query string and hash fragment,
+      // e.g., http://www.foo.tld/one/two?a=b&c=d#qwe, becomes
+      // http://www.foo.tld/?/one/two&a=b~and~c=d#qwe
+      // Note: this 404.html file must be at least 512 bytes for it to work
+      // with Internet Explorer (it is currently > 512 bytes)
+
+      // If you're creating a Project Pages site and NOT using a custom domain,
+      // then set pathSegmentsToKeep to 1 (enterprise users may need to set it to > 1).
+      // This way the code will only replace the route part and not the real path to
+      // the GitHub repository.  See https://github.com/rafgraph/spa-github-pages/issues/3
+      // for more information.  A custom domain preserves the path to the repository.
+      var pathSegmentsToKeep = 0;
+
+      var l = window.location;
+      l.replace(
+        l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
+        l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + '/?/' +
+        l.pathname.slice(1).split('/').slice(pathSegmentsToKeep).join('/').replace(/&/g, '~and~') +
+        (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
+        l.hash
+      );
+    </script>
+  </body>
+</html>
