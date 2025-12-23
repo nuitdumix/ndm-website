@@ -13,7 +13,7 @@ export default function NotFound() {
           <p className="mt-2 text-sm md:text-base tracking-[0.25em] text-ndm-muted uppercase">· route inconnue ·</p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-1 gap-8">
+        <div className="grid grid-cols-1 gap-8">
           <div className="border-2 border-ndm-accent bg-black/60 p-5 flex flex-col gap-6">
             <div className="text-sm tracking-[0.28em]">REDIRECTION</div>
             <div className="border-2 border-dashed border-ndm-accent px-3 py-2 text-xs md:text-sm tracking-[0.18em] text-center">
