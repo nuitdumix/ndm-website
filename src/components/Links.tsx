@@ -29,7 +29,7 @@ const links: LinkItem[] = [
   },
   {
     label: 'INSCRIPTION',
-    url: 'https://www.instagram.com/nuitdumix',
+    url: '/inscription',
     icon: '✉'
   }
 ]

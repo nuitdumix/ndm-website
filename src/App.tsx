@@ -6,6 +6,7 @@ import About from './components/About'
 import EventGrid from './components/EventGrid'
 import NotFound from './components/NotFound'
 import Links from './components/Links'
+import InscriptionTemp from './components/InscriptionTemp'
 import { useEventStore } from './store/eventStore'
 
 function Home() {
@@ -138,6 +139,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/links" element={<Links />} />
+            <Route path="/inscription" element={<InscriptionTemp />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
