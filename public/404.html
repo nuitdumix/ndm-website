@@ -30,6 +30,7 @@
         align-items: center;
         justify-content: center;
         padding: 2.5rem 1.5rem;
+        visibility: hidden; /* prevent flash before redirect */
       }
 
       .frame {
@@ -219,6 +220,11 @@
         (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
         l.hash
       );
+
+      // If redirect fails (e.g., file opened locally), reveal the bouncer page after a short delay
+      setTimeout(() => {
+        document.body.style.visibility = 'visible';
+      }, 400);
     </script>
   </body>
 </html>
