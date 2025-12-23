@@ -21,35 +21,38 @@ function Home() {
 function App() {
   const { loadEvents } = useEventStore()
 
-  // Normalize incoming URLs (GH Pages redirect + Instagram wrapped links) BEFORE Router mounts.
+  // Normalize incoming URLs (GH Pages redirect + Instagram-wrapped + naked UTM paths) BEFORE Router mounts.
   if (typeof window !== 'undefined') {
-    const { search, hash, origin } = window.location
+    const { search, hash, origin, pathname } = window.location
+
+    const decodeTilde = (value: string) => value.replace(/~and~/g, '&')
+    const safeDecode = (value: string) => {
+      try { return decodeURIComponent(value) } catch { return value }
+    }
 
     const urlParams = new URLSearchParams(search)
-
-    // 1) Instagram (and similar) wrap links inside a query param like u= or link=
     const candidateKeys = ['u', 'link', 'url', 'target', 'redirect', 'r']
     let rewritten = ''
 
+    // 1) Unwrap Instagram-like redirections contained in query params
     for (const key of candidateKeys) {
       const raw = urlParams.get(key)
       if (!raw) continue
 
-      try {
-        // Many services double-encode, decode twice safely
-        const decodedOnce = decodeURIComponent(raw)
-        const decoded = decodedOnce.startsWith('http') ? decodedOnce : raw
-        const asUrl = new URL(decoded)
+      const cleaned = decodeTilde(raw)
+      const decoded1 = safeDecode(cleaned)
+      const decoded2 = safeDecode(decoded1)
+      const candidate = decoded2.startsWith('http') ? decoded2 : decoded1.startsWith('http') ? decoded1 : cleaned
 
-        // If the wrapped URL points to our domain, extract the path/query/hash
+      try {
+        const asUrl = new URL(candidate)
         if (asUrl.origin === origin || asUrl.hostname.endsWith('nuit.dumix.live')) {
           rewritten = asUrl.pathname + asUrl.search + asUrl.hash
           break
         }
       } catch {
-        // Fallback: accept a leading-slash path directly
-        if (raw.startsWith('/')) {
-          rewritten = raw
+        if (candidate.startsWith('/')) {
+          rewritten = candidate
           break
         }
       }
@@ -57,10 +60,28 @@ function App() {
 
     // 2) GH Pages spa-github-pages redirect format: ?/path&query
     if (!rewritten && search.startsWith('?/')) {
-      rewritten = search.slice(1).replace(/~and~/g, '&') + hash
+      const payload = decodeTilde(search.slice(2)) // remove '?/'
+      const [rawPath, ...rest] = payload.split('&')
+      const pathPart = safeDecode(rawPath || '/')
+      const queryRaw = rest.join('&')
+      const queryPart = queryRaw ? safeDecode(queryRaw) : ''
+      const normalizedPath = pathPart.startsWith('/') ? pathPart : `/${pathPart}`
+      rewritten = normalizedPath + (queryPart ? `?${queryPart}` : '') + hash
     }
 
-    if (rewritten) {
+    // 3) Instagram-style naked query appended to path (no '?', only '&utm...')
+    if (!rewritten && !search && pathname.includes('&')) {
+      const [rawPath, ...rest] = pathname.split('&')
+      if (rest.length) {
+        const pathPart = safeDecode(rawPath || '/')
+        const queryRaw = decodeTilde(rest.join('&'))
+        const queryPart = safeDecode(queryRaw)
+        const normalizedPath = pathPart.startsWith('/') ? pathPart : `/${pathPart}`
+        rewritten = `${normalizedPath}?${queryPart}${hash}`
+      }
+    }
+
+    if (rewritten && rewritten !== (pathname + search + hash)) {
       window.history.replaceState(null, '', rewritten)
     }
   }
