@@ -21,12 +21,47 @@ function Home() {
 function App() {
   const { loadEvents } = useEventStore()
 
-  // Normalize GitHub Pages SPA redirect BEFORE Router mounts (replaceState doesn't trigger popstate)
+  // Normalize incoming URLs (GH Pages redirect + Instagram wrapped links) BEFORE Router mounts.
   if (typeof window !== 'undefined') {
-    const search = window.location.search
-    if (search.startsWith('?/')) {
-      const target = search.slice(1).replace(/~and~/g, '&') + window.location.hash
-      window.history.replaceState(null, '', target)
+    const { search, hash, origin } = window.location
+
+    const urlParams = new URLSearchParams(search)
+
+    // 1) Instagram (and similar) wrap links inside a query param like u= or link=
+    const candidateKeys = ['u', 'link', 'url', 'target', 'redirect', 'r']
+    let rewritten = ''
+
+    for (const key of candidateKeys) {
+      const raw = urlParams.get(key)
+      if (!raw) continue
+
+      try {
+        // Many services double-encode, decode twice safely
+        const decodedOnce = decodeURIComponent(raw)
+        const decoded = decodedOnce.startsWith('http') ? decodedOnce : raw
+        const asUrl = new URL(decoded)
+
+        // If the wrapped URL points to our domain, extract the path/query/hash
+        if (asUrl.origin === origin || asUrl.hostname.endsWith('nuit.dumix.live')) {
+          rewritten = asUrl.pathname + asUrl.search + asUrl.hash
+          break
+        }
+      } catch {
+        // Fallback: accept a leading-slash path directly
+        if (raw.startsWith('/')) {
+          rewritten = raw
+          break
+        }
+      }
+    }
+
+    // 2) GH Pages spa-github-pages redirect format: ?/path&query
+    if (!rewritten && search.startsWith('?/')) {
+      rewritten = search.slice(1).replace(/~and~/g, '&') + hash
+    }
+
+    if (rewritten) {
+      window.history.replaceState(null, '', rewritten)
     }
   }
 
