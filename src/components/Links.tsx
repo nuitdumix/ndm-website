@@ -29,7 +29,7 @@ const links: LinkItem[] = [
   },
   {
     label: 'INSCRIPTION',
-    url: '/inscription',
+    url: 'https://forms.gle/3cNrzPTstboFpJyG9',
     icon: '✉'
   }
 ]
