@@ -151,3 +151,77 @@ body {
   background: #FFA400;
   color: #000;
 }
+
+/* ========================
+   GALLERY / ARTWORK STYLES
+   ======================== */
+
+/* Smooth scroll for anchor navigation */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Gallery grid responsive adjustments */
+@media (min-width: 640px) {
+  .gallery-masonry {
+    column-count: 2;
+    column-gap: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .gallery-masonry {
+    column-count: 3;
+    column-gap: 2rem;
+  }
+}
+
+/* Zoom animation for gallery images */
+.artwork-zoom-enter {
+  opacity: 0;
+  transform: scale(0.95);
+}
+
+.artwork-zoom-enter-active {
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 200ms ease-out, transform 200ms ease-out;
+}
+
+.artwork-zoom-exit {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.artwork-zoom-exit-active {
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 150ms ease-in, transform 150ms ease-in;
+}
+
+/* Gallery card shine effect on hover */
+.gallery-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.1),
+    transparent
+  );
+  transition: left 0.5s ease;
+  pointer-events: none;
+}
+
+.gallery-card:hover::before {
+  left: 100%;
+}
+
+/* Sticky nav shadow on scroll */
+.gallery-nav-sticky {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
