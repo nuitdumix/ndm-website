@@ -42,44 +42,6 @@ export const COLLECTIONS: ArtworkCollectionInfo[] = [
 // Artwork data with Google Drive file IDs
 // To update IDs: Open file in Drive → Share → Copy link → Extract ID from /d/{ID}/view
 export const ARTWORKS: Artwork[] = [
-  // === PRESS START ===
-  {
-    id: 'ps-affiche-main',
-    title: 'Affiche Press Start',
-    collection: 'press-start',
-    driveId: '1sELUCzURDfZumtA7wqO11kKpKebdOZyD',
-    description: 'Affiche principale de la soirée Press Start — style arcade rétro',
-    format: 'portrait',
-    year: 2025
-  },
-  {
-    id: 'ps-affiche-1',
-    title: 'Press Start — Affiche A3 #1',
-    collection: 'press-start',
-    driveId: '1I3aTI22-G_ytSrvPOx1gGS12TrxiTWWU',
-    description: 'Première affiche A3 officielle',
-    format: 'portrait',
-    year: 2025
-  },
-  {
-    id: 'ps-affiche-2',
-    title: 'Press Start — Affiche A3 #2',
-    collection: 'press-start',
-    driveId: '1hVdqt0HGLZyk0gZQ6lqAlNph2ezAbNdu',
-    description: 'Deuxième affiche A3 officielle',
-    format: 'portrait',
-    year: 2025
-  },
-  {
-    id: 'ps-affiche-3',
-    title: 'Press Start — Affiche A3 #3',
-    collection: 'press-start',
-    driveId: '1IeCo0FZsnVu2X1-09L4XgKlH74WqzGta',
-    description: 'Troisième affiche A3 officielle',
-    format: 'portrait',
-    year: 2025
-  },
-
   // === NO SHAZAM ===
   {
     id: 'ns-visual-1',
@@ -88,6 +50,43 @@ export const ARTWORKS: Artwork[] = [
     driveId: '1Q8xe-y4K5dfdK4Wbl2VmCT-XCb72ts0g',
     description: 'Visuel officiel de la soirée No Shazam',
     format: 'square',
+    year: 2025
+  },
+  // === PRESS START ===
+  {
+    id: 'ps-affiche-main',
+    title: 'Affiche Press Start',
+    collection: 'press-start',
+    driveId: '1sELUCzURDfZumtA7wqO11kKpKebdOZyD',
+    description: 'Affiche principale de la soirée Press Start',
+    format: 'portrait',
+    year: 2025
+  },
+  {
+    id: 'ps-affiche-1',
+    title: 'Press Start — Affiche A3 #1',
+    collection: 'press-start',
+    driveId: '1I3aTI22-G_ytSrvPOx1gGS12TrxiTWWU',
+    description: 'Post artistique format instagram',
+    format: 'portrait',
+    year: 2025
+  },
+  {
+    id: 'ps-affiche-2',
+    title: 'Press Start — Affiche A3 #2',
+    collection: 'press-start',
+    driveId: '1hVdqt0HGLZyk0gZQ6lqAlNph2ezAbNdu',
+    description: 'Post artistique format instagram',
+    format: 'portrait',
+    year: 2025
+  },
+  {
+    id: 'ps-affiche-3',
+    title: 'Press Start — Affiche A3 #3',
+    collection: 'press-start',
+    driveId: '1IeCo0FZsnVu2X1-09L4XgKlH74WqzGta',
+    description: 'Post artistique format instagram',
+    format: 'portrait',
     year: 2025
   },
 
@@ -123,7 +122,7 @@ export const ARTWORKS: Artwork[] = [
     title: 'Reverse Poster',
     collection: 'reverse',
     driveId: '14oOOUwx2AHllUTfV78W3Zuq3EU3TXwiP',
-    description: 'Affiche conceptuelle de la soirée Reverse — quand tout s\'inverse',
+    description: 'Affiche soirée Reverse — quand tout s\'inverse',
     format: 'portrait',
     year: 2025
   },
