@@ -8,6 +8,7 @@ import NotFound from './components/NotFound'
 import Links from './components/Links'
 import InscriptionTemp from './components/InscriptionTemp'
 import Artwork from './components/Artwork'
+import Header from './components/Header'
 import { useEventStore } from './store/eventStore'
 
 function Home() {
@@ -136,6 +137,7 @@ function App() {
   return (
     <Router>
       <div className="min-h-screen bg-ndm-dark text-ndm-accent font-mono">
+        <Header />
         <main>
           <Routes>
             <Route path="/" element={<Home />} />
