@@ -49,7 +49,7 @@ export const ARTWORKS: Artwork[] = [
     collection: 'no-shazam',
     driveId: '1Q8xe-y4K5dfdK4Wbl2VmCT-XCb72ts0g',
     description: 'Visuel officiel de la soirée No Shazam',
-    format: 'square',
+    format: 'portrait',
     year: 2025
   },
   // === PRESS START ===
@@ -92,28 +92,36 @@ export const ARTWORKS: Artwork[] = [
 
   // === MATIÈRES & ÉLÉMENTS (Placeholders) ===
   {
-    id: 'me-placeholder-1',
+    id: 'me-1',
     title: 'Matières #1',
     collection: 'matieres-elements',
-    driveId: 'PLACEHOLDER_MATIERES_1',
-    description: 'Exploration des textures — Concept 1',
-    format: 'square'
-  },
-  {
-    id: 'me-placeholder-2',
-    title: 'Éléments #2',
-    collection: 'matieres-elements',
-    driveId: 'PLACEHOLDER_MATIERES_2',
-    description: 'Fusion des éléments — Concept 2',
+    driveId: '1ZOHB05wDjYNXOzx2PggEtqezT9h4mdDf',
+    description: 'Exploration des textures — Eau',
     format: 'portrait'
   },
   {
-    id: 'me-placeholder-3',
+    id: 'me-2',
+    title: 'Éléments #2',
+    collection: 'matieres-elements',
+    driveId: '1Zgz7yRfbniKG8Etn6M7ZDAzwvleNpDuh',
+    description: 'Fusion des éléments — Feu',
+    format: 'portrait'
+  },
+  {
+    id: 'me-3',
     title: 'Matières & Éléments #3',
     collection: 'matieres-elements',
-    driveId: 'PLACEHOLDER_MATIERES_3',
-    description: 'Synthèse sensorielle — Concept 3',
-    format: 'landscape'
+    driveId: '16LJpuLQ97Hq_Wy33jOSDHb3pbn2aoOz7',
+    description: 'Synthèse sensorielle — Feuille',
+    format: 'portrait'
+  },
+  {
+    id: 'me-4',
+    title: 'Matières & Éléments #4',
+    collection: 'matieres-elements',
+    driveId: '19BkXHJEEHmWJw_fsBNKK6Wqe__cDOvd2',
+    description: 'Matière et élément — Simple',
+    format: 'portrait'
   },
 
   // === REVERSE ===

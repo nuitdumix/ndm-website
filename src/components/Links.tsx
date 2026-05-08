@@ -29,8 +29,13 @@ const links: LinkItem[] = [
   },
   {
     label: 'INSCRIPTION',
-    url: 'https://forms.gle/3cNrzPTstboFpJyG9',
+    url: 'https://www.instagram.com/nuitdumix',
     icon: '✉'
+  },
+  {
+    label: 'SHOTGUN',
+    url: 'https://shotgun.live/venues/nuit-du-mix',
+    icon: '♺'
   }
 ]
 

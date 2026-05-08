@@ -141,7 +141,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/links" element={<Links />} />
             <Route path="/inscription" element={<InscriptionTemp />} />
-            <Route path="/artwork" element={<Artwork />} />
+            <Route path="/artworks" element={<Artwork />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
