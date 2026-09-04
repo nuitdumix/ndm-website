@@ -6,6 +6,9 @@ export type ArtworkCollection =
   | 'matieres-elements'
   | 'reverse'
   | 'artistic-assets'
+  | 'f-d-l-m'
+  | 'reves'
+  | 'galerie'
 
 export interface Artwork {
   id: string
@@ -23,6 +26,7 @@ export interface ArtworkCollectionInfo {
   subtitle?: string
   description: string
   folderId?: string // Google Drive folder ID for bulk download
+  postCount?: number
 }
 
 // Google Drive thumbnail URL helper

@@ -9,8 +9,6 @@ interface ArtworkGalleryProps {
 }
 
 const ArtworkGallery: React.FC<ArtworkGalleryProps> = ({ collection, artworks }) => {
-  if (artworks.length === 0) return null
-
   return (
     <section className="py-16 md:py-24 border-b border-ndm-primary/20">
       {/* Terminal-style header */}
@@ -51,15 +49,26 @@ const ArtworkGallery: React.FC<ArtworkGalleryProps> = ({ collection, artworks })
       </div>
 
       {/* Masonry-style grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-        {artworks.map((artwork) => (
-          <ArtworkCard key={artwork.id} artwork={artwork} />
-        ))}
-      </div>
+      {artworks.length > 0 && (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+          {artworks.map((artwork) => (
+            <ArtworkCard key={artwork.id} artwork={artwork} />
+          ))}
+        </div>
+      )}
+
+      {artworks.length === 0 && collection.folderId && (
+        <iframe
+          src={`https://drive.google.com/embeddedfolderview?id=${collection.folderId}#grid`}
+          title={`Posts de la collection ${collection.title}`}
+          className="w-full h-[520px] border-4 border-ndm-accent shadow-[6px_6px_0px_#FFA400] bg-white"
+          loading="lazy"
+        />
+      )}
 
       {/* Collection footer */}
       <div className="mt-8 font-mono text-[10px] text-ndm-muted/40 text-right">
-        {artworks.length} œuvre{artworks.length > 1 ? 's' : ''} — collection {collection.id}
+        {collection.postCount ?? artworks.length} post{(collection.postCount ?? artworks.length) > 1 ? 's' : ''} — collection {collection.id}
       </div>
     </section>
   )

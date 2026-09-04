@@ -36,6 +36,30 @@ export const COLLECTIONS: ArtworkCollectionInfo[] = [
     subtitle: 'POSTS INSTAGRAM',
     description: 'Créations visuelles partagées sur nos réseaux — art digital et compositions graphiques.',
     folderId: '1FPssUAkc0DZc6qazYJHt7IuxtJONuop1'
+  },
+  {
+    id: 'f-d-l-m',
+    title: 'FDLM',
+    subtitle: 'FÊTE DE LA MUSIQUE',
+    description: 'Visuels de la Fête de la musique.',
+    folderId: '18V4_JWX5LPbGsK3s00VRFCN2hHhsuefO',
+    postCount: 2
+  },
+  {
+    id: 'reves',
+    title: 'RÊVES',
+    subtitle: 'POSTS INSTAGRAM',
+    description: 'Créations visuelles autour de l’univers des rêves.',
+    folderId: '1JAsClaFx1A2koGmKGa7yAZxIyBa0ex6i',
+    postCount: 2
+  },
+  {
+    id: 'galerie',
+    title: 'GALERIE',
+    subtitle: 'COURANT ARTISTIQUE',
+    description: 'Sélection de créations autour d’un courant artistique.',
+    folderId: '1PGKskJLPzIjDv_KOO0fK-7-PBNRQ1Va2',
+    postCount: 4
   }
 ]
 
