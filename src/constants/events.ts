@@ -96,7 +96,7 @@ const EVENTS_DATA: Omit<NDMEvent, 'id'>[] = [
     city: 'Lyon',
     theme: "Rêves",
     description: "NDM vous invite à plonger dans l'univers des rêves à travers une expérience musicale immersive.",
-    status: 'upcoming',
+    status: 'past',
     price: '2€',
     ticketUrl: '#'
   }
