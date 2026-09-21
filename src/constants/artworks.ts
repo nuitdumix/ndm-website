@@ -58,7 +58,7 @@ export const COLLECTIONS: ArtworkCollectionInfo[] = [
     title: 'GALERIE',
     subtitle: 'COURANT ARTISTIQUE',
     description: 'Sélection de créations autour d’un courant artistique.',
-    folderId: '1PGKskJLPzIjDv_KOO0fK-7-PBNRQ1Va2',
+    folderId: '1Uz2DBG6HbzW6v9ks4k2ag40988_5LjR7',
     postCount: 4
   }
 ]
